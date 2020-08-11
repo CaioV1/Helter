@@ -1,0 +1,25 @@
+body {
+  background-color: #282c34;
+}
+
+.title {
+  display: flex;
+  background-color: yellow;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  color: #ffffff;
+}
+
+.song-title {
+  color: #ffffff;
+  font-weight: 50;
+  font-size: 1.5rem;
+}
+
+.song-author {
+  color: #ffffff;
+  font-weight: 50;
+  font-size: 0.9rem;
+}

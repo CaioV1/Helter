@@ -1,0 +1,27 @@
+.test {
+  display: flex;
+}
+
+.button-nav {
+  width: 100px;
+  height: 250px;
+  text-align: center;
+  padding-top: 60px;
+  color: #ffffff;
+  font-size: 4.5rem;
+}
+
+.recent-container {
+  /* background-color: darkblue; */
+  overflow: hidden;
+}
+
+.slider-container {
+  display: flex;
+  width: 2500px;
+  transform: translateX(-20px);
+  /* background-color: darkred; */
+  /* justify-content: space-between; */
+  /* padding-left: 50px;
+  padding-right: 50px; */
+}
