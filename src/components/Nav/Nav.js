@@ -12,7 +12,7 @@ class Nav extends Component {
             <i className="fa fa-plane"></i>
           </div>
         </div>
-        <span className="title-system">Visual Upload</span>
+        <span className="title-system">Helter</span>
         <nav className="nav">
           <div className="menu">
             <div className="icon">
@@ -23,7 +23,7 @@ class Nav extends Component {
             </div>
 
             <div className="icon">
-              <i class="fa fa-book"></i>
+              <i className="fa fa-book"></i>
             </div>
             <div className="menu-item">
               <Link to="/library">Biblioteca</Link>

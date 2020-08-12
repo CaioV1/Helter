@@ -1,6 +1,6 @@
 import { apiURL }  from "../utils/Global";
 
-export const play = async (form) => {
+export const play = async(form) => {
 
     const response = await fetch(`${apiURL}/audio/play`, {
         method : "GET",

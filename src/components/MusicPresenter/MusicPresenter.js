@@ -7,7 +7,7 @@ class MusicPresenter extends Component {
 
   render() {
     const imageUrl = this.props.src;
-    const artist = this.props.name;
+    const albumName = this.props.name;
 
     return (
       <div
@@ -18,8 +18,8 @@ class MusicPresenter extends Component {
         }}
       >
         <div className="extra-info">
-          <div className="record-name">{imageUrl}</div>
-          <div className="artist">{artist}</div>
+          <div className="record-name">{albumName}</div>
+          <div className="artist">{albumName}</div>
           <div className="count">
             <div>
               <i className="fa fa-star"></i> 5

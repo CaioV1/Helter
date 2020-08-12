@@ -18,7 +18,7 @@ ReactDOM.render(
       <Route path="/" exact={true} component={App}></Route>
       <Route path="/favorites" component={Favorites}></Route>
       <Route path="/library" component={Library}></Route>
-      <Route path="/record_songs" component={RecordSongs}></Route>
+      <Route path="/record_songs/:record_id" component={RecordSongs}></Route>
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

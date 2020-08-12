@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-//import soundfile from "../../assets/test.mp3";
 import Sound from "react-sound";
-import { play } from "../../services/AudioService";
+//import { play } from "../../services/AudioService";
+//import soundfile from "../../assets/test.mp3";
 
 export default class SongPlayer extends Component {
 
