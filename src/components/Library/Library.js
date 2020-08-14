@@ -4,10 +4,29 @@ import "./Library.css";
 import "../../assets/style.css";
 
 import Nav from "../Nav/Nav";
-import SliderAlbum from "../SliderAlbum/SliderAlbum";
+import RecordsContainer from "../RecordsContainer/RecordsContainer";
+import { getRecords } from "../../services/RecordService";
 
 class Library extends Component {
+
   state = {};
+
+  constructor(props) {
+    super(props);
+
+    this.state = { data: [] }
+
+  }
+
+  componentDidMount(){
+
+    getRecords().then((data)=>{
+      
+      this.setState({data})
+
+    })
+
+  }
 
   render() {
 
@@ -17,7 +36,7 @@ class Library extends Component {
         <div className="title">
           <h1>Recentes</h1>
         </div>
-        <SliderAlbum key="slider_album"></SliderAlbum>
+        <RecordsContainer key="records_container" records={this.state.data}></RecordsContainer>
       </div>
     );
   }

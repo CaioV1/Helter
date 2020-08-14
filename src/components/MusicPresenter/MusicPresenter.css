@@ -1,49 +1,35 @@
 .music-container {
-  width: 250px;
-  height: 250px;
-  margin-left: 60px;
+  width: 18rem;
+  height: 18rem;
   background-size: cover;
   /* background-image: url("/src/assets/abbey_road.jpg"); */
   color: #ffffff;
   transition: 0.2s;
-}
-
-.music-container:hover {
-  height: 260px;
-  transition: 0.2s;
-  opacity: 0.5;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  
 }
 
 .extra-info {
-  display: none;
-  width: 250px;
-  height: 125px;
-  margin-top: 125px;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 0px;
   z-index: 30;
-  /* background-color: yellow; */
+  overflow: hidden;
+  background-color: #212529;
   text-align: center;
+  transition: 0.3s;
 }
 
 .record-name {
   font-size: 1.4rem;
-  text-shadow: 1px 1px #ffffff;
+  font-weight: bold;
 }
 
-.count {
-  width: 250px;
-  display: flex;
-  font-size: 1.2rem;
-  padding-top: 10px;
-  padding-right: 50px;
-  padding-left: 50px;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  flex-direction: row;
-}
-
-.music-container:hover > .extra-info {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  position: absolute;
+.music-container:hover > .extra-info {  
+  height: 5rem;
+  transition: 0.3s;
 }
