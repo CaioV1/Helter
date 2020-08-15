@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./MusicPresenter.css";
-// import Background from "../../assets/wish_you_were_here.jpg";
 
 class MusicPresenter extends Component {
   state = {};
