@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import "./Library.css";
-import "../../assets/style.css";
+import "../../assets/scss/style.scss";
 
-import Nav from "../Nav/Nav";
+import Nav from "../shared/Nav/Nav";
 import RecordsContainer from "../RecordsContainer/RecordsContainer";
 import { getRecords } from "../../services/RecordService";
 

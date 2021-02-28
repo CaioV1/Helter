@@ -1,0 +1,45 @@
+@import "../../../assets/scss/variables/colors.scss";
+@import "../../../assets/scss/variables/fonts.scss";
+
+.icon{
+
+    width: 2rem;
+    height: 2rem;
+
+}
+
+.icon-text{
+
+    display: flex;
+    text-align: center;
+
+}
+
+.menu-item{
+
+    width: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.container-fluid{
+
+    background-color: $primary-color !important;
+}
+
+.logo-animation {
+    animation: App-logo-spin infinite 10s linear;
+    pointer-events: none;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+  

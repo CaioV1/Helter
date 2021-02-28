@@ -3,7 +3,7 @@ import "./RecordsContainer.css";
 import { Link } from "react-router-dom";
 import MusicPresenter from "../MusicPresenter/MusicPresenter";
 
-class SliderAlbum extends Component {
+class RecordsContainer extends Component {
   state = {};
 
   render() {
@@ -12,13 +12,18 @@ class SliderAlbum extends Component {
       <div className="container" style={{marginBottom: "3rem"}}>
         <div className="row record-row">
         {
-            this.props.records.map(album => (
-              <Link to={{pathname:"/record_songs/" + album._id}}>
+            this.props.records.map(record => (
+              <Link to={{
+                  pathname:"/record_songs/" + record._id,
+                  state: {
+                    record: record
+                  }
+                }}>
                 <MusicPresenter
-                  key={album._id} 
-                  name={album.title}
-                  band={album.band.name}
-                  src={album.pathImage}
+                  key={record._id} 
+                  name={record.title}
+                  band={record.band.name}
+                  src={record.pathImage}
                 ></MusicPresenter>
               </Link>
             ))}
@@ -28,4 +33,4 @@ class SliderAlbum extends Component {
   }
 }
 
-export default SliderAlbum;
+export default RecordsContainer;

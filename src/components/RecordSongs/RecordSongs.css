@@ -12,7 +12,6 @@
   background-size: cover;
   /* position: relative; */
   filter: brightness(15%);
-  background-image: url("../../assets/images/record/abbey_road.jpg");
 }
 
 .album-title {

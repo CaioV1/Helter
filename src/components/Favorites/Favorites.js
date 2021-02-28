@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Favorites.css";
 
-import Nav from "../Nav/Nav";
+import Nav from "../shared/Nav/Nav";
 // import SliderAlbum from "../SliderAlbum/SliderAlbum";
 
 class Favorites extends Component {
