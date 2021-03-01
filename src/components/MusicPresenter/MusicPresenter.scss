@@ -1,0 +1,42 @@
+@import "../../assets/scss/variables/colors";
+@import "../../assets/scss/variables/fonts";
+
+.music-container {
+  width: 18rem;
+  height: 18rem;
+  background-size: cover;
+  /* background-image: url("/src/assets/abbey_road.jpg"); */
+  color: #ffffff;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  
+}
+
+.extra-info {
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 0px;
+  z-index: 30;
+  overflow: hidden;
+  background-color: $secondary-color;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.record-name {
+  font-size: 1.4rem;
+  font-weight: $font-normal;
+}
+
+.artist{
+    font-weight: $font-light;
+}
+
+.music-container:hover > .extra-info {  
+  height: 5rem;
+  transition: 0.3s;
+}

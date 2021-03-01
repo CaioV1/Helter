@@ -1,0 +1,36 @@
+@import "./variables/fonts";
+@import "./variables/colors";
+
+body {
+  background-color: $tertiary-color;
+  font-family: $font-family;
+}
+
+a {
+    text-decoration: none !important;
+    color: $text-color;
+}
+
+h1{
+    font-size: 1.8rem;
+}
+
+.title {
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+  color: $text-color;
+}
+
+.song-title {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.song-author {
+  color: #ffffff;
+  font-weight: 50;
+  font-size: 0.9rem;
+}

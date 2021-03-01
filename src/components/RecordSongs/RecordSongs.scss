@@ -1,0 +1,89 @@
+@import "../../assets/scss/variables/colors";
+
+.record-container {
+  width: 100%;
+}
+
+.album-cover {
+  width: 1000px;
+  height: 1000px;
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  background-size: cover;
+  /* position: relative; */
+  filter: brightness(25%);
+}
+
+.album-title {
+  width: 900px;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: $text-alternative-color;
+}
+
+.songs-list {
+  width: 900px;
+  /* overflow: auto; */
+  margin-top: -950px;
+  margin-right: auto;
+  margin-left: auto;
+  z-index: 99;
+  position: relative;
+  /* left: auto;
+  right: auto;
+  top: 0; */
+}
+
+.song-item {
+  width: 900px;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.song-item:hover {
+  border: 1px solid #ffffff;
+}
+
+.song-item:hover .song-title,
+.song-item:hover .song-author {
+  text-shadow: 2px 2px 2px #ffffff;
+}
+
+.song-item:hover .song-play {
+  display: block;
+}
+
+.song-info {
+  display: flex;
+  /* margin-right: 540px; */
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.song-action {
+  width: 100px;
+  height: 40px;
+  margin-top: 13px;
+  padding: 10px 10px 10px 10px;
+  display: flex;
+  font-size: 1.2rem;
+  justify-content: space-between;
+  /* border: 1px solid #ffffff; */
+}
+
+.song-play {
+  width: 30px;
+  height: 30px;
+  display: none;
+  margin-top: 15px;
+  margin-right: 15px;
+  padding-top: 2px;
+  padding-left: 9px;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+}

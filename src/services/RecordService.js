@@ -7,3 +7,11 @@ export const getRecords = async() => {
     return response.json();
 
 }
+
+export const getRecord = async(recordId) => {
+
+    const response = await fetch(`${apiURL}/record/${recordId}`, {method:"GET"});
+
+    return response.json();
+
+}
