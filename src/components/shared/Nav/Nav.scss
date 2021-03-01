@@ -1,6 +1,12 @@
 @import "../../../assets/scss/variables/colors.scss";
 @import "../../../assets/scss/variables/fonts.scss";
 
+.container-fluid{
+
+    background-color: $primary-color !important;
+    font-size: 0.8rem;
+}
+
 .icon{
 
     width: 2rem;
@@ -15,23 +21,32 @@
 
 }
 
+.menu-container{
+
+    display: flex;
+    align-items: center;
+    height: 3rem;
+
+}
+
 .menu-item{
 
-    width: 5rem;
+    width: auto;
+    min-width: 3rem;
+    margin-right: 2rem;
+
+}
+
+.fa{
+
+    margin-right: 5px;
+    color: $secondary-color;
+    
+}
+
+.user-container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-
-.container-fluid{
-
-    background-color: $primary-color !important;
-}
-
-.logo-animation {
-    animation: App-logo-spin infinite 10s linear;
-    pointer-events: none;
+    margin-left: 20px;
 }
 
 @keyframes App-logo-spin {

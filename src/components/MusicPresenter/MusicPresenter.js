@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./MusicPresenter.css";
+import "./MusicPresenter.scss";
 import { apiURL } from "../../utils/Global";
 
 class MusicPresenter extends Component {

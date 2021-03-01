@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../../assets/scss/style.scss";
 
 import { apiURL } from "../../utils/Global";
-import "./RecordSongs.css";
+import "./RecordSongs.scss";
 import SongPlayer from "../SongPlayer/SongPlayer";
 import Nav from "../shared/Nav/Nav";
 import { getAudioByRecord } from "../../services/AudioService";

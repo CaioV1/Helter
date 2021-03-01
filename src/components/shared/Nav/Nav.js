@@ -20,27 +20,30 @@ class Nav extends Component {
                         </div>
                     </div>
                     <div className="col-7">
-                        <div className="container">
-                                <div className="row align-items-center">
-                                    <div className="col-2">
-                                        <div className="menu-item">
-                                            <i className="fa fa-home"></i>
-                                            Início
-                                        </div>
-                                    </div>
-                                    <div className="col-2">
-                                        <div className="menu-item">
-                                            <i className="fa fa-music"></i>
-                                            Coleção
-                                        </div>
-                                    </div>
-                                    <div className="col-7">
-                                    </div>
-                                </div>
+                        <nav className="menu-container">
+                            <div className="menu-item">
+                                <Link to="/">
+                                    <i className="fa fa-home"></i>
+                                    Início
+                                </Link>
                             </div>
+                            <div className="menu-item">
+                                <Link to="/library">
+                                    <i className="fa fa-music"></i>
+                                    Biblioteca
+                                </Link>
+                            </div>
+                            <div className="menu-item">
+                                <i className="fa fa-history"></i>
+                                Histórico
+                            </div>
+                        </nav>
                     </div>
                     <div className="col-3">
-                        <div className="alert alert-warning"></div>
+                        <div className="user-container">
+                            <i className="fa fa-user"></i>
+                            <span className="user-name">CaioV</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,12 +87,7 @@ class Nav extends Component {
             <div className="search-bar"> Pesquisar</div>
           </div>
 
-          <div className="user-container">
-            <div className="icon" style={{ marginLeft: "0px" }}>
-              <i className="fa fa-user"></i>
-            </div>
-            <span className="user-name">CaioV</span>
-          </div>
+          
         </nav>
       </header>
     );*/

@@ -34,7 +34,7 @@ class Library extends Component {
       <div className="main">
         <Nav></Nav>
         <div className="title">
-          <h1>Recentes</h1>
+          <h1>Biblioteca</h1>
         </div>
         <RecordsContainer key="records_container" records={this.state.data}></RecordsContainer>
       </div>
