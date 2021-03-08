@@ -5,6 +5,7 @@ import "../../assets/scss/style.scss";
 
 import Nav from "../../components/Nav/Nav";
 import RecordsContainer from "../../components/RecordsContainer/RecordsContainer";
+
 import { getRecords } from "../../services/RecordService";
 
 const Library = () => {
@@ -19,7 +20,7 @@ const Library = () => {
 
         });
 
-    });
+    }, []);
 
     return (
         <div className="main">
@@ -27,7 +28,7 @@ const Library = () => {
             <div className="title">
             <h1>Biblioteca</h1>
             </div>
-            <RecordsContainer key="records_container" records={listRecords}></RecordsContainer>
+            <RecordsContainer records={listRecords}></RecordsContainer>
         </div>
     );
 

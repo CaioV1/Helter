@@ -1,15 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
+
 import "./MusicPresenter.scss";
+
 import { apiURL } from "../../utils/Global";
 
-class MusicPresenter extends Component {
-  state = {};
+const MusicPresenter = (props: any) => {
 
-  render() {
-
-    const imageUrl =  apiURL.replace("api", "") + this.props.src;
-    const albumName = this.props.name;
-    const bandName = this.props.band;
+    const imageUrl =  apiURL.replace("api", "") + props.src;
+    const albumName = props.name;
+    const bandName = props.band;
 
     return (
         <div className="card" style={{width: "18rem", backgroundColor: "transparent", marginTop: "2rem"}}>
@@ -23,7 +22,7 @@ class MusicPresenter extends Component {
           </div>
         </div>
     );
-  }
+
 }
 
 export default MusicPresenter;
