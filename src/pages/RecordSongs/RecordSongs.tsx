@@ -45,7 +45,7 @@ const RecordSongs = () => {
     return (
         <div className="record-container">
             <Nav></Nav>
-            {playSong ? <SongPlayer name={urlSong} /> : null}
+            {/* {playSong ? <SongPlayer name={urlSong} /> : null} */}
             <div className="album-cover" style={{ backgroundImage: `url(${pathImage})` }}></div>
             <div className="songs-list">
             <div className="album-title">{record.title}</div>
