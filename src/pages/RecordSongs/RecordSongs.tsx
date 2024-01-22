@@ -15,63 +15,65 @@ import { Record } from "../../interfaces/Record";
 
 const RecordSongs = () => {
 
-    const location = useLocation<any>();
-    const record: Record = location.state;
+  const location = useLocation<any>();
+  const record: Record = location.state;
 
-    const [songs, setSongs] = useState([]);
-    const [playSong, setPlaySong] = useState(false);
-    const [urlSong, setUrlSong] = useState("");
-    const [pathImage, setPathImage] = useState("");
+  console.log(record);
 
-    const firesSong = (audioId: String) => {
-    
-        setPlaySong(true);
-        setUrlSong(apiURL + "/audio/play/" + audioId);
-        
-    }
+  const [songs, setSongs] = useState([]);
+  const [playSong, setPlaySong] = useState(false);
+  const [urlSong, setUrlSong] = useState("");
+  const [pathImage, setPathImage] = useState("");
 
-    useEffect(() => {
+  const firesSong = (audioId: String) => {
 
-        setPathImage(apiURL.replace("api", "") + record.pathImage);
+    setPlaySong(true);
+    setUrlSong(apiURL + "/audio/play/" + audioId);
 
-        getAudioByRecord(record._id).then((data)=>{
+  }
 
-            setSongs(data);      
-      
-        });
+  useEffect(() => {
 
-    }, [record]);
+    setPathImage(apiURL.replace("api", "") + record.pathImage);
 
-    return (
-        <div className="record-container">
-            <Nav></Nav>
-            {/* {playSong ? <SongPlayer name={urlSong} /> : null} */}
-            <div className="album-cover" style={{ backgroundImage: `url(${pathImage})` }}></div>
-            <div className="songs-list">
-            <div className="album-title">{record.title}</div>
-            <div className="album-title" style={{ fontSize: 20 }}>
-                {record.band.name}
-            </div>
-            {
-                songs.map((song: Song) => (
-                    <div className="song-item" key={song._id}>
-                        <div className="song-info">
-                        <div className="song-play" onClick={() => firesSong(song._id)}>
-                            <i className="fa fa-play"></i>
-                        </div>
-                        <span className="song-title">{song.title}</span>
-                        <span className="song-author">{song.authors.map((author: any) => (author.name))}</span>
-                        </div>
-                        <div className="song-action">
-                        <i className="fa fa-heart"></i>
-                        <i className="fa fa-plus"></i>
-                        </div>
-                    </div>
-                ))
-            }
-            </div>
+    getAudioByRecord(record._id).then((data) => {
+
+      setSongs(data);
+
+    });
+
+  }, [record]);
+
+  return (
+    <div className="record-container">
+      <Nav></Nav>
+      {playSong ? <SongPlayer songPath={urlSong} /> : null}
+      <div className="album-cover" style={{ backgroundImage: `url(${pathImage})` }}></div>
+      <div className="songs-list">
+        <div className="album-title">{record.title}</div>
+        <div className="album-title" style={{ fontSize: 20 }}>
+          {record.band.name}
         </div>
-    );
+        {
+          songs.map((song: Song) => (
+            <div className="song-item" key={song._id}>
+              <div className="song-info">
+                <div className="song-play" onClick={() => firesSong(song._id)}>
+                  <i className="fa fa-play"></i>
+                </div>
+                <span className="song-title">{song.title}</span>
+                <span className="song-author">{song.authors.map((author: any) => (author.name))}</span>
+              </div>
+              <div className="song-action">
+                <i className="fa fa-heart"></i>
+                <i className="fa fa-plus"></i>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  );
 }
 
 export default RecordSongs;

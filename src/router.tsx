@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <Library/>
   },
   {
-    path: '/record_songs/:record_id',
+    path: '/record_songs/:recordId',
     element: <RecordSongs/>
   },
 ]);

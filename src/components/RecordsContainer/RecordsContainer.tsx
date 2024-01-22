@@ -14,10 +14,7 @@ const RecordsContainer = ({records}: any) => {
         <div className="row record-row">
         {
             records.map((record: Record) => (
-              <Link key={record._id} to={{
-                  pathname:"/record_songs/" + record._id,
-                  state:record
-                }}>
+              <Link key={record._id} to={"/record_songs/" + record._id} state={record}>
                 <MusicPresenter 
                   name={record.title}
                   band={record.band.name}
