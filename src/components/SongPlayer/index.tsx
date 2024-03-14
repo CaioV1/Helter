@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
 
 import "./style.scss";
-import song from './test.mp3';
+import { convertSecondToTimeString } from "../../utils/StringUtil";
+
+// import song from './test.mp3';
 
 interface SongPlayerProps {
   songPath: string;
@@ -11,10 +13,11 @@ const SongPlayer: React.FC<SongPlayerProps> = ({songPath}) => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const [volume, setVolume] = useState<number>(1);
-  const [totalTime, setTotalTime] = useState<string>('0:00');
-  const [currentTime, setCurrentTime] = useState<string>('0:00');
+  const [duration, setDuration] = useState<number>(0);
+  const [durationLabel, setDurationLabel] = useState<string>('0:00');
+  const [currentTimeLabel, setCurrentTimeLabel] = useState<string>('0:00');
   const [songProgress, setSongProgress] = useState<number>(0);
-  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
 
   const handlePlayPauseClick = () => {
     if(audioRef.current && !isPlaying) audioRef.current.play();
@@ -30,12 +33,16 @@ const SongPlayer: React.FC<SongPlayerProps> = ({songPath}) => {
 
   const handleProgressChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const tempProgress = parseFloat(event.target.value);
-    if(audioRef.current) {
-      const duration = audioRef.current.duration;
-      const tempCurrentTime = tempProgress * duration / 100;
-      audioRef.current.currentTime = tempCurrentTime;
-    }
+    if(audioRef.current) audioRef.current.currentTime = tempProgress;
     setSongProgress(tempProgress);
+  }
+
+  const onAudioLoaded = () => {
+    if(audioRef.current){
+      setDuration(audioRef.current.duration);
+      audioRef.current.play();
+      handleTimeUpdate();
+    }
   }
 
   const handleTimeUpdate = () => {
@@ -43,15 +50,9 @@ const SongPlayer: React.FC<SongPlayerProps> = ({songPath}) => {
       const currentTime = audioRef.current.currentTime;
       const duration = audioRef.current.duration;
 
-      const currentMinutes = Math.floor(currentTime / 60);
-      const currentSeconds = Math.floor(currentTime % 60).toString().padStart(2, '0');
-      const totalMinutes = Math.floor(duration / 60);
-      const totalSeconds = Math.floor(duration % 60).toString().padStart(2, '0');
-
-      setCurrentTime(`${currentMinutes}:${currentSeconds}`);
-      setTotalTime(`${totalMinutes}:${totalSeconds}`);
-
-      setSongProgress(currentTime * 100 / duration);
+      setSongProgress(currentTime);
+      setDurationLabel(convertSecondToTimeString(duration));
+      setCurrentTimeLabel(convertSecondToTimeString(currentTime));
     }
   }
 
@@ -61,10 +62,10 @@ const SongPlayer: React.FC<SongPlayerProps> = ({songPath}) => {
         controls 
         ref={audioRef} 
         preload="metadata"
-        onTimeUpdate={handleTimeUpdate} 
-        onLoadedMetadata={handleTimeUpdate} 
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={onAudioLoaded} 
       >
-        <source src={song} type="audio/mpeg" />
+        <source src={songPath} type="audio/mpeg" />
       </audio>
       <div className="controls">
         {
@@ -81,18 +82,21 @@ const SongPlayer: React.FC<SongPlayerProps> = ({songPath}) => {
           onChange={handleVolumeChange}
         />
       </div>
-      <input 
-        type="range" 
-        min="0" 
-        max="100" 
-        value={songProgress} 
-        onChange={handleProgressChange}
-      />
+      {
+        duration && 
+        <input 
+          type="range" 
+          min="0" 
+          max={duration}
+          value={songProgress} 
+          onChange={handleProgressChange}
+        />
+      }
       <div className="progress">
-        <div className="progress-bar" style={{width: `${songProgress}%`}}></div>
+        <div className="progress-bar" style={{width: `${(songProgress * 100) / duration}%`}}></div>
       </div>
-      <div>{currentTime}</div>
-      <div>{totalTime}</div>
+      <div>{currentTimeLabel}</div>
+      <div>{durationLabel}</div>
     </div>
   );
 }

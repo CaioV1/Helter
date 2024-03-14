@@ -5,7 +5,8 @@ import "./RecordSongs.scss";
 import "../../assets/scss/style.scss";
 
 import Nav from "../../components/Nav/Nav";
-import SongPlayer from "../../components/SongPlayer/SongPlayer";
+import SongItemComponent from "../../components/SongItem";
+import SongPlayer from "../../components/SongPlayer";
 
 import { apiURL } from "../../utils/Global";
 import { getAudioByRecord } from "../../services/AudioService";
@@ -38,7 +39,7 @@ const RecordSongs: React.FC = () => {
 
   return (
     <div className="record-container">
-      <Nav></Nav>
+      <Nav />
       {playSong ? <SongPlayer songPath={urlSong} /> : null}
       <div className="album-cover" style={{ backgroundImage: `url(${pathImage})` }}></div>
       <div className="songs-list">
@@ -46,23 +47,7 @@ const RecordSongs: React.FC = () => {
         <div className="album-title" style={{ fontSize: 20 }}>
           {record.band.name}
         </div>
-        {
-          songs.map((song: Song) => (
-            <div className="song-item" key={song._id}>
-              <div className="song-info">
-                <div className="song-play" onClick={() => firesSong(song._id)}>
-                  <i className="fa fa-play"></i>
-                </div>
-                <span className="song-title">{song.title}</span>
-                <span className="song-author">{song.authors.map((author) => (author.name))}</span>
-              </div>
-              <div className="song-action">
-                <i className="fa fa-heart"></i>
-                <i className="fa fa-plus"></i>
-              </div>
-            </div>
-          ))
-        }
+        { songs.map((song: Song) => <SongItemComponent key={song._id} song={song} onPlayClick={() => firesSong(song._id)} />) }
       </div>
     </div>
   );

@@ -2,12 +2,10 @@ import React from "react";
 
 import "./History.scss";
 
-const History = () => (
-
-    <div className="history">
-        <h1>History</h1>
-    </div>
-
+const History: React.FC = () => (
+	<div className="history">
+		<h1>History</h1>
+	</div>
 )
 
 export default History;
